@@ -1,14 +1,20 @@
-package com.geminus.challenge.service;
+package com.geminus.challenge.service.impl;
 
 
 import com.geminus.challenge.entity.Jaula;
+import com.geminus.challenge.service.PruebaService;
 import io.vavr.Lazy;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class pruebas {
+@Service
+@Component
+public class PruebaServiceImpl implements PruebaService {
+
     private final Lazy<SplittableRandom> random = Lazy.of(SplittableRandom::new);
 
     /**
@@ -21,6 +27,7 @@ public class pruebas {
      * @param cadena la cadena a evaluar
      * @return booleano indicando si la cadena cumple con las propiedades
      */
+
     public Boolean isValid(String cadena) {
         if (cadena.length() > 0 && cadena != null) {
             Boolean todosLaMismaCantidadMenosUno = false;
@@ -70,7 +77,7 @@ public class pruebas {
      * Luego dividir el valor de SGR, por el producto resultante del paso anterior.
      * Nota: SGR es una variable de tipo Double con valor = 1590d
      */
-
+    @Override
     public Double caso1(Integer nro) {
         Integer multiplicador = isPar(nro) ? 10 : 3;
         return SRG / (nro * multiplicador);
@@ -94,7 +101,7 @@ public class pruebas {
      *
      * @return
      */
-
+    @Override
     public Integer caso2(int[] arreglo) {
         Set<Object> result = new HashSet();
         /*convierto el arreglo en un List<Integer> para manejarlo con Strams()*/
@@ -125,7 +132,7 @@ public class pruebas {
      * - Las 4 jaulas de un grupo deben ser distintas. Ejemplo de grupo [Jaula 105, Jaula 108, Jaula 116, Jaula 120]
      * - Mostrar por consola la estructura de grupos formada.
      */
-
+    @Override
     public void caso3(Integer cantidadJaulasPorGrupo, Integer cantidadDeGrupos) {
         String name = "Jaula "; // string de nombre generico
         Random rnd = new Random();
