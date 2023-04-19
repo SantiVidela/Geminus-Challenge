@@ -7,5 +7,5 @@ public interface PruebaService {
 
     public Integer caso2(int[] arreglo);
 
-    public void caso3(Integer cantidadJaulasPorGrupo, Integer cantidadDeGrupos);git
+    public void caso3(Integer cantidadJaulasPorGrupo, Integer cantidadDeGrupos);
 }
